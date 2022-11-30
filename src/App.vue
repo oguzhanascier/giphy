@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <search-vue></search-vue>
+    <search-vue :searchRequest="handleSearch"></search-vue>
     <previewVue :gifs="gifs"></previewVue>
   </div>
 </template>
