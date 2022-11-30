@@ -21,6 +21,11 @@ export default {
 </script>
 
 <style>
+.search{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
 .search input{
   padding: 10px;
 }
