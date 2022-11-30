@@ -1,7 +1,11 @@
 <template>
   <div>
     <ul>
-        <li v-for="gif in gifs" :key="gif"></li>
+        <li v-for="gif in gifs" :key="gif.id">
+
+            <img :src="gif.images.fixed_height.url" alt="" />
+        </li>
+        
     </ul>
   </div>
 </template>
