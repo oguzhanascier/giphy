@@ -13,6 +13,12 @@ export default {
     searchVue,
     previewVue
   },
+  created(){
+    fetch('https://api.giphy.com/v1/gifs/trending?api_key=uwOc1BxEe5fIJ99L8FhncwO9otGUw6xg&limit=25&rating=g')
+    .then((res)=> {
+      return res.json()})
+      .then((res) => {console.log(res)})
+  }
 };
 </script>
 
