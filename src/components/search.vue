@@ -14,7 +14,7 @@ export default {
   },
   methods:{
     handleSearch(){
-      console.log(this.query)
+      this.$emit('searchRequested', this.query)
     }
   }
 };
