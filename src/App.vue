@@ -1,15 +1,16 @@
 <template>
   <div id="app">
-   
+    <search-vue></search-vue>
   </div>
 </template>
 
 <script>
-
+import searchVue from "./components/search.vue";
 export default {
   components: {
-  }
-}
+    searchVue,
+  },
+};
 </script>
 
 <style>
