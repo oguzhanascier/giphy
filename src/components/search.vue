@@ -1,7 +1,6 @@
 <template>
   <div class="search">
     <input type="text"  v-model="query"/>
-    {{query}}
     <button @click="handleSearch">Search</button>
   </div>
 </template>
@@ -13,7 +12,24 @@ export default {
       query: "",
     };
   },
+  methods:{
+    handleSearch(){
+      console.log(this.query)
+    }
+  }
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style>
+.search input{
+  padding: 10px;
+}
+
+.search button{
+  background: #1e2a36;
+  color: white;
+  border: none;
+  height: 39.7px;
+  border-radius: 0 5px 5px 0;
+}
+</style>
