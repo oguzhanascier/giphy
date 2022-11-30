@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <search-vue></search-vue>
-    <previewVue></previewVue>
+    <previewVue :gifs="gifs"></previewVue>
   </div>
 </template>
 
@@ -11,26 +11,43 @@ import previewVue from "./Preview.vue";
 export default {
   components: {
     searchVue,
-    previewVue
+    previewVue,
   },
-  created(){
-    fetch('https://api.giphy.com/v1/gifs/trending?api_key=uwOc1BxEe5fIJ99L8FhncwO9otGUw6xg&limit=25&rating=g')
-    .then((res)=> {
-      return res.json()})
-      .then((res) => {console.log(res)})
-  }
+  data() {
+    return {
+      gifs:[]
+    };
+  },
+  created() {
+    fetch(
+      "https://api.giphy.com/v1/gifs/trending?api_key=uwOc1BxEe5fIJ99L8FhncwO9otGUw6xg&limit=25&rating=g"
+    )
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        this.gifs=res.data;
+
+        console.log(res.data.url)
+        
+      });
+  },
 };
 </script>
 
 <style>
-body{
+body {
   background: #687c91;
+}
+
+ul li {
+  list-style: none;
+
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 </style>
