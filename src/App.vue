@@ -1,14 +1,17 @@
 <template>
   <div id="app">
     <search-vue></search-vue>
+    <previewVue></previewVue>
   </div>
 </template>
 
 <script>
 import searchVue from "./components/search.vue";
+import previewVue from "./Preview.vue";
 export default {
   components: {
     searchVue,
+    previewVue
   },
 };
 </script>
