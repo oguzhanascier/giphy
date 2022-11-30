@@ -1,15 +1,15 @@
 <template>
-    <div>
-
-    </div>
+  <div>
+    <ul>
+        <li v-for="gif in gifs" :key="gif"></li>
+    </ul>
+  </div>
 </template>
 
 <script>
-    export default {
-        
-    }
+export default {
+  props: ["gifs"],
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style></style>
