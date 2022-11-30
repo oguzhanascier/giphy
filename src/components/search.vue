@@ -2,7 +2,7 @@
   <div class="search">
     <input type="text"  v-model="query"/>
     {{query}}
-    <button>Search</button>
+    <button @click="handleSearch">Search</button>
   </div>
 </template>
 
