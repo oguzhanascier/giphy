@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <ul>
-        <li v-for="gif in gifs" :key="gif.id">
+        <li v-for="(gif, index) in gifs" :key="index">
             <img :src="gif.images.fixed_height.url" alt="" />
         </li>
         

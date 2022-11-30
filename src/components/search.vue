@@ -36,5 +36,6 @@ export default {
   border: none;
   height: 39.7px;
   border-radius: 0 5px 5px 0;
+  cursor: pointer;
 }
 </style>

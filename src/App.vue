@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <search-vue :searchRequest="handleSearch"></search-vue>
+    <p class="loading" v-if="isLoading">Loading...</p>
+    <search-vue @searchRequested="handlerSearch"></search-vue>
     <previewVue :gifs="gifs"></previewVue>
   </div>
 </template>
@@ -15,8 +16,25 @@ export default {
   },
   data() {
     return {
-      gifs:[]
+      isLoading: true,
+      gifs: [],
     };
+  },
+  methods: {
+    handlerSearch(query) {
+      this.gifs = [];
+      this.isLoading = true;
+      fetch(
+        `https://api.giphy.com/v1/gifs/search?api_key=uwOc1BxEe5fIJ99L8FhncwO9otGUw6xg&q=${query}&limit=25&offset=0&rating=g&lang=en`
+      )
+        .then((res) => {
+          return res.json();
+        })
+        .then((res) => {
+          this.gifs = res.data;
+          this.isLoading = false;
+        });
+    },
   },
   created() {
     fetch(
@@ -26,10 +44,8 @@ export default {
         return res.json();
       })
       .then((res) => {
-        this.gifs=res.data;
-
-        console.log(res.data.url)
-        
+        this.gifs = res.data;
+        this.isLoading = false;
       });
   },
 };
@@ -40,9 +56,16 @@ body {
   background: #687c91;
 }
 
+.loading {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 68px;
+}
+
 ul li {
   list-style: none;
-
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
