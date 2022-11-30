@@ -1,8 +1,7 @@
 <template>
-  <div>
+  <div class="container">
     <ul>
         <li v-for="gif in gifs" :key="gif.id">
-
             <img :src="gif.images.fixed_height.url" alt="" />
         </li>
         
@@ -16,4 +15,23 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.container{
+    width: 100vw;
+    display: flex;
+}
+
+ul{
+display: flex;
+justify-content: center;
+gap: 15px;
+flex-wrap: wrap;
+}
+
+
+
+img{
+    width: 300px;
+    height: 300px;
+}
+</style>
